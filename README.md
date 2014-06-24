@@ -12,7 +12,7 @@ Graphite imports a folder of fonts and automagically outputs font-face directive
 
 ### Directory tree
 
-Each font-family should have it's own folder inside of the top-level fonts directory.
+Each font-family should have it's own folder inside of the top-level fonts directory. Font-family directory name should match the name specified in the actual font filename.
 
 ```
 root
@@ -35,7 +35,7 @@ name-weight-style.extension
 ```
 
 Example,
-`lato-400-italic.woff`, `lato-400-normal.ttf`, `helvetica-neue-100-normal.svg`
+`helvetica-neue-400-italic.woff`, `helvetica-neue-400-normal.ttf`, `helvetica-neue-100-normal.svg`
 
 ### Configuration
 
@@ -56,3 +56,5 @@ $graphite_chdir: ".." !global;
 ```scss
 @include graphite("/fonts");
 ```
+
+Graphite will also create local variables for each font, so with the example above we would have a `$helvetica-neue: "helvetica-neue";` variable to use within out stylesheet. Graphite does not handle creating font stacks; that is left up to you.
