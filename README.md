@@ -21,5 +21,4 @@ style <normal | italic>
 ```
 
 ##### Example
-`lato-400-italic.woff`
-`lato-400-normal.ttf`
+`lato-400-italic.woff`, `lato-400-normal.ttf`, `helvetica-neue-100-normal.svg`
