@@ -2,6 +2,11 @@
 
 Graphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet. Will write up better documentation soon.
 
+##Requirements
+
+* Sass ~> 3.3.0
+* Compass ~> 1.0.0.alpha.19
+
 ## Installation
 
 1. `gem install graphite-sass`
@@ -102,3 +107,11 @@ $helvetica-neue: "helvetica-neue";
   src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.svg#helvetica-neue") format("svg");
 }
 ```
+
+## Authors
+
+[Ezekiel Gabrielse](http://ezekielg.com)
+
+## License
+
+Graphite is available under the [MIT](http://opensource.org/licenses/MIT) license.
