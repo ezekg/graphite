@@ -19,8 +19,10 @@ root
 ├── fonts
 │   ├── helvetica-neue
 │   │   ├── helvetica-neue-400-italic.woff
-│   │   ├── helvetica-neue-400-normal.ttf
-│   │   ├── helvetica-neue-100-normal.svg
+│   │   ├── helvetica-neue-400-normal.woff
+│   │   ├── helvetica-neue-700-italic.woff
+│   │   ├── helvetica-neue-700-normal.woff
+│   │   ├── ...
 ├── sass
 │   ├── style.scss
 ```
@@ -62,3 +64,41 @@ $graphite_chdir: ".." !global;
 ```
 
 Graphite will also create a local Sass variable for each font-family, so with the example above we would have a `$helvetica-neue: "helvetica-neue"` variable to use within the stylesheet, such as for a font stack. Graphite does not handle creating font stacks; that is left up to you.
+
+### Output
+
+```scss
+$helvetica-neue: "helvetica-neue";
+
+@font-face {
+  font-family: "helvetica-neue";
+  font-weight: 200;
+  font-style: italic;
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot");
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.svg#helvetica-neue/helvetica-neue") format("svg");
+}
+
+@font-face {
+  font-family: "helvetica-neue";
+  font-weight: 200;
+  font-style: normal;
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot");
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.svg#helvetica-neue/helvetica-neue") format("svg");
+}
+
+@font-face {
+  font-family: "helvetica-neue";
+  font-weight: 700;
+  font-style: italic;
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot");
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.svg#helvetica-neue/helvetica-neue") format("svg");
+}
+
+@font-face {
+  font-family: "helvetica-neue";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot");
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.svg#helvetica-neue/helvetica-neue") format("svg");
+}
+```
