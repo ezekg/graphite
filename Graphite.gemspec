@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
     s.date = Graphite::DATE
 
     # Gem Details
-    s.name = "Graphite"
+    s.name = "graphite-sass"
     s.rubyforge_project = "graphite"
     s.licenses = ['MIT']
     s.authors = ["Ezekiel Gabrielse"]
