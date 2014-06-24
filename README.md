@@ -18,7 +18,9 @@ Each font-family should have it's own folder inside of the top-level fonts direc
 root
 ├── fonts
 │   ├── helvetica-neue
-│   │   ├── helvetica-neue-400-normal.woff
+│   │   ├── helvetica-neue-400-italic.woff
+│   │   ├── helvetica-neue-400-normal.ttf
+│   │   ├── helvetica-neue-100-normal.svg
 ├── sass
 │   ├── style.scss
 ```
