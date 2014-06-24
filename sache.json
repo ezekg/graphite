@@ -1,0 +1,5 @@
+{
+    "name": "Graphite",
+    "description": "Graphite imports a folder of fonts and automagically outputs their font-face directives.",
+    "tags": ["fonts", "typography", "sass", "ruby", "import"]
+}

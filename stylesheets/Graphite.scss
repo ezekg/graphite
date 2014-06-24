@@ -1,0 +1,165 @@
+// Filename seperator
+// ----
+$graphite_seperator: "-" !global;
+
+// Prepend directory path
+// ----
+$graphite_chdir: ".." !global;
+
+// Checks if item is map
+// ----
+// @param $n [literal] : item
+// ----
+// @return [bool]
+
+@function is-map($n) {
+    @return type-of($n) == "map";
+}
+
+// Fetch value from key in map
+// ----
+// @dependence `map-fetche()`
+// ----
+// @param $i [map] : map
+// @param $n [list] : keys
+// ----
+// @return fetched value | false
+
+@function map-fetch($map, $keys) {
+	$key: nth($keys, 1);
+	$length: length($keys);
+	$value: map-get($map, $key);
+
+	// check if value equals null (meaning the @param was incorrect and the map doesn't exist)
+	@if $value == null {
+		@warn "Invalid arguments padded to function: `map-fetch(#{$map}, #{$keys})`";
+		@return false;
+	}
+
+	@else {
+		@if $length > 1 {
+			$rest: ();
+
+			@for $i from 2 through $length {
+				$rest: append($rest, nth($keys, $i))
+			}
+
+			@return map-fetch($value, $rest);
+
+		} @else {
+			@return $value;
+		}
+	}
+}
+
+// Import fonts from $dir
+// ----
+// @param $dir [string] : directory to import fonts
+// @param $legacy-ie [bool] : support legacy ie
+// ----
+// @return $fonts [map] : imports fonts from $dir and creates
+//   a $var for each font family containing [string] name
+
+@mixin graphite($dir, $legacy-ie: false) {
+    $graphite_fonts: graphite("#{$dir}", $legacy-ie) !global;
+
+    // Make sure it's a valid map before attempting the loop
+    @if is-map($graphite_fonts) {
+        // Start legacy with null value
+        $legacy-ie: null;
+
+    	// Loop over each label => font and output a @font-face directive
+    	@each $key, $value in $graphite_fonts {
+
+            // Support legacy IE?
+            @if $key == "legacy-ie" {
+                $legacy-ie: map-get($graphite_fonts, "legacy-ie");
+            }
+
+            @if is-map($value) {
+                // Font name
+                $name: $key;
+                // Path to top-level font directory
+                $path: $graphite_font_dir;
+                // Empty list of extensions
+                $extensions: ();
+                // Empty list of declared fonts
+                $history: ();
+
+                // Break down the font map
+                @each $k, $v in $value {
+
+                    // Font directory string
+                    @if $k == "path" {
+                        // Define path to font directory
+                        $path: $graphite_chdir + $path + "/" + $v;
+                    }
+
+                    // List of extensions found
+                    @if $k == "extensions" {
+                        // Get each extension
+                        @each $ext in $v {
+                            // Append ext to list
+                            $extensions: append($extensions, $ext);
+                        }
+                    }
+
+                    // Map of font weights
+                    @if $k == "weights" {
+                        $weights: map-fetch($graphite_fonts, $key $k);
+
+                        // Iterate over each weight
+                        @each $weight, $styles in $weights {
+                            // Get list of styles for weight
+                            $styles: map-fetch($weights, $weight "styles");
+
+                            // Iterate over each style
+                            @each $style in $styles {
+                                // Contatenate vars to create filename
+                                $filename: "#{$name + $graphite_seperator + $weight + $graphite_seperator + $style}";
+
+                                // If filename has not already been declared
+                                @if not index($history, "#{$filename}") {
+                                    // Add filename to history
+                                    $history: append($history, $filename, "comma");
+
+                                    @font-face {
+                                        // Empty list of valid extensions
+                                        $types: ();
+
+                                        // Define font family
+                                        font-family: "#{$name}";
+
+                                        // Output weight and style
+                                        font-weight: $weight;
+                                        font-style: $style;
+
+                                        // IE9
+                                        @if index($extensions, "eot") {
+                                            src: url("#{$path + $filename}.eot");
+                                        }
+
+                                        // Define value for each type
+                                        $ie: if(index($extensions, "eot") and $legacy-ie, url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
+                                        $woff: if(index($extensions, "woff"), url("#{$path + $filename}.woff") format("woff"), null);
+                                        $ttf: if(index($extensions, "ttf"), url("#{$path + $filename}.ttf") format("truetype"), null);
+                                        $svg: if(index($extensions, "svg"), url("#{$path + $filename + '.svg#' + $name}") format("svg"), null);
+
+                                        // Append to types list if not null
+                                        $types: if($ie != null, append($types, #{$ie}, "comma"), $types);
+                                        $types: if($woff != null, append($types, #{$woff}, "comma"), $types);
+                                        $types: if($ttf != null, append($types, #{$ttf}, "comma"), $types);
+                                        $types: if($svg != null, append($types, #{$svg}, "comma"), $types);
+
+                                        // Output types
+                                        src: #{$types};
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+    	}
+    }
+}
