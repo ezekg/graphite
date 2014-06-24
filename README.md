@@ -83,7 +83,7 @@ $helvetica-neue: "helvetica-neue";
   font-weight: 200;
   font-style: normal;
   src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.svg#helvetica-neue/helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.svg#helvetica-neue") format("svg");
 }
 
 @font-face {
@@ -91,7 +91,7 @@ $helvetica-neue: "helvetica-neue";
   font-weight: 700;
   font-style: italic;
   src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.svg#helvetica-neue/helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.svg#helvetica-neue") format("svg");
 }
 
 @font-face {
@@ -99,6 +99,6 @@ $helvetica-neue: "helvetica-neue";
   font-weight: 700;
   font-style: normal;
   src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.svg#helvetica-neue/helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.svg#helvetica-neue") format("svg");
 }
 ```
