@@ -38,5 +38,5 @@ $graphite_chdir: ".." !global;
 ### Usage
 
 ```scss
-@mixin graphite("/fonts", $legacy-ie: false);
+@include graphite("/fonts");
 ```
