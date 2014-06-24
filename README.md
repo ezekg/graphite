@@ -19,6 +19,8 @@ root
 ├── fonts
 │   ├── helvetica-neue
 │   │   ├── helvetica-neue-400-normal.woff
+├── sass
+│   ├── style.scss
 ```
 
 ### File naming convention
