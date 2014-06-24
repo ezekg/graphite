@@ -10,6 +10,17 @@ Graphite imports a folder of fonts and automagically outputs font-face directive
 
 ## Documentation
 
+### Directory tree
+
+Each font-family should have it's own folder inside of the top-level fonts directory.
+
+```
+root
+├── fonts
+│   ├── helvetica-neue
+│   │   ├── helvetica-neue-400-normal.woff
+```
+
 ### File naming convention
 
 In order for Graphite to successfully import your fonts, please follow this convention for naming your font files:
