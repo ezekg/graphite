@@ -1,6 +1,6 @@
 # Graphite [![Gem Version](https://badge.fury.io/rb/graphite-sass.svg)](http://badge.fury.io/rb/graphite-sass)
 
-Graphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet.
+Graphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet. Will write up better documentation soon.
 
 ## Installation
 
@@ -29,12 +29,17 @@ In order for Graphite to successfully import your fonts, please follow this conv
 name <string>
 weight <100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900>
 style <normal | italic>
+extension <woff | ttf | eot | svg | otf>
+
+name-weight-style.extension
 ```
 
-#### Example
+Example,
 `lato-400-italic.woff`, `lato-400-normal.ttf`, `helvetica-neue-100-normal.svg`
 
-### Setup
+### Configuration
+
+These global variables can be changed according to your needs.
 
 ```scss
 // Filename seperator
@@ -51,5 +56,3 @@ $graphite_chdir: ".." !global;
 ```scss
 @include graphite("/fonts");
 ```
-
-##### WIP
