@@ -65,7 +65,15 @@ $graphite_chdir: ".." !global;
 ### Usage
 
 ```scss
-@include graphite("/fonts");
+// Import fonts from $dir
+// ----
+// @param $dir [string] : directory to import fonts
+// @param $legacy-ie [bool] : support legacy ie
+// ----
+// @return $fonts [map] : imports fonts from $dir and creates
+//   a $var for each font family containing [string] name
+
+@include graphite("/fonts", true);
 ```
 
 Graphite will also create a local Sass variable for each font-family, so with the example above we would have a `$helvetica-neue: "helvetica-neue"` variable to use within the stylesheet, such as for a font stack. Graphite does not handle creating font stacks; that is left up to you.
