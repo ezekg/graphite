@@ -78,7 +78,7 @@ $graphite_chdir: ".." !global;
 @include graphite("/fonts", true);
 ```
 
-Graphite will also create a local Sass variable for each font-family, so with the example above we would have a `$helvetica-neue: "helvetica-neue"` variable to use within the stylesheet, such as for a font stack. Graphite does not handle creating font stacks; that is left up to you. Graphite will import the correct filetypes for each font-family. This check is run on a family-to-family basis, and not a font-to-font basis; be sure to include the same filetypes for each font in your font-family folder to 404 request errors.
+Graphite will also create a local Sass variable for each font-family, so with the example above we would have a `$helvetica-neue: "helvetica-neue"` variable to use within the stylesheet, such as for a font stack. Graphite does not handle creating font stacks; that is left up to you. Graphite will import the correct filetypes for each font-family. This check is run on a family-to-family basis, and not a font-to-font basis; be sure to include the same filetypes for each font in your font-family folder to avoid any 404 request errors.
 
 ### Output
 
