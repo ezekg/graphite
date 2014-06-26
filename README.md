@@ -80,6 +80,8 @@ Graphite will also create a local Sass variable for each font-family, so with th
 
 ### Output
 
+The output is similar to what Google Fonts does with their CSS. All fonts share the same font-family, and each fonts style and weight is assigned appropriately.
+
 ```scss
 $helvetica-neue: "helvetica-neue";
 
