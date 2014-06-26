@@ -92,7 +92,7 @@ $helvetica-neue: "helvetica-neue";
   font-weight: 200;
   font-style: italic;
   src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.svg#helvetica-neue/helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.svg#helvetica-neue") format("svg");
 }
 
 @font-face {
