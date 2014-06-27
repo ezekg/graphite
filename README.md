@@ -38,12 +38,12 @@ root
 
 In order for Graphite to successfully import your fonts, please follow this convention for naming your font files:
 
-###### name: \[\<string\>\]
-###### weight: \[\<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>\]
-###### style: \[\<normal | italic\>\]
-###### extension: \[\<woff | ttf | eot | svg | otf\>\]
+> ###### name: \[\<string\>\]
+> ###### weight: \[\<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>\]
+> ###### style: \[\<normal | italic\>\]
+> ###### extension: \[\<woff | ttf | eot | svg | otf\>\]
 
-##### name-weight-style.extension
+#### name-weight-style.extension
 
 Example,
 `helvetica-neue-400-italic.woff`, `helvetica-neue-400-normal.ttf`, `helvetica-neue-100-normal.svg`
