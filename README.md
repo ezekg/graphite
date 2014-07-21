@@ -4,12 +4,12 @@ Graphite imports a folder of fonts and automagically outputs font-face directive
 
 ##Requirements
 
-* Sass ~> 3.3.0
-* Compass ~> 1.0.0.alpha.19
+* Sass `~> 3.3.0`
+* Compass `~> 1.0.0.alpha.19`
 
 ## Installation
 
-1. `gem install graphite-sass`
+1. `gem install graphite-sass`/`bower install graphite-sass`
 2. Add `require "graphite"` to your `config.rb`
 3. Import into your stylesheet with `@import "graphite";`
 
@@ -17,7 +17,7 @@ Graphite imports a folder of fonts and automagically outputs font-face directive
 
 ### Directory tree
 
-Each font-family should have it's own folder inside of the top-level fonts directory. Font-family directory name should match the name specified in the actual font filename.
+Each font-family should have it's own folder inside of the top-level fonts directory. The font-family directory name should match the name specified in the actual font filename.
 
 ```
 root
