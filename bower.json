@@ -1,0 +1,18 @@
+{
+  "name": "graphite",
+  "version": "0.1.0",
+  "main": "stylesheets/_graphite.scss",
+  "description": "{raphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet.",
+  "authors": ["Ezekiel Gabrielse <ezekg@yahoo.com>"],
+  "homepage": "https://github.com/ezekg/graphite/",
+  "keywords": [
+    "typography", "font", "importer", "font-face"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.json",
+    "*.gemspec",
+    "*.gem"
+  ]
+}

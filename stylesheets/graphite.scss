@@ -12,7 +12,7 @@ $graphite_chdir: ".." !global;
 // ----
 // @return [bool]
 
-@function is-map($n) {
+@function graphite-is-map($n) {
     @return type-of($n) == "map";
 }
 
@@ -23,17 +23,12 @@ $graphite_chdir: ".." !global;
 // ----
 // @return fetched literal | false
 
-@function map-fetch($map, $keys) {
+@function graphite-map-fetch($map, $keys) {
 	$key: nth($keys, 1);
 	$length: length($keys);
 	$value: map-get($map, $key);
 
-	@if $value == null {
-		@warn "Invalid arguments padded to function: `map-fetch(#{$map}, #{$keys})`";
-		@return false;
-	}
-
-	@else {
+	@if $value != null {
 		@if $length > 1 {
 			$rest: ();
 
@@ -41,11 +36,14 @@ $graphite_chdir: ".." !global;
 				$rest: append($rest, nth($keys, $i))
 			}
 
-			@return map-fetch($value, $rest);
+			@return graphite-map-fetch($value, $rest);
 
 		} @else {
 			@return $value;
 		}
+	} @else {
+		@warn "Invalid arguments passed to function: graphite-map-fetch(#{$map}, #{$keys}). One or more of the keys do not exist.";
+		@return false;
 	}
 }
 
@@ -61,7 +59,7 @@ $graphite_chdir: ".." !global;
     $graphite_fonts: graphite("#{$dir}", $legacy-ie) !global;
 
     // Make sure it's a valid map before attempting the loop
-    @if is-map($graphite_fonts) {
+    @if graphite-is-map($graphite_fonts) {
         // Start legacy with null value
         $legacy-ie: null;
 
@@ -73,7 +71,7 @@ $graphite_chdir: ".." !global;
                 $legacy-ie: map-get($graphite_fonts, "legacy-ie");
             }
 
-            @if is-map($value) {
+            @if graphite-is-map($value) {
                 // Font name
                 $name: $key;
                 // Path to top-level font directory
@@ -103,12 +101,12 @@ $graphite_chdir: ".." !global;
 
                     // Map of font weights
                     @if $k == "weights" {
-                        $weights: map-fetch($graphite_fonts, $key $k);
+                        $weights: graphite-map-fetch($graphite_fonts, $key $k);
 
                         // Iterate over each weight
                         @each $weight, $styles in $weights {
                             // Get list of styles for weight
-                            $styles: map-fetch($weights, $weight "styles");
+                            $styles: graphite-map-fetch($weights, $weight "styles");
 
                             // Iterate over each style
                             @each $style in $styles {

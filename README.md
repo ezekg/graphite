@@ -38,10 +38,10 @@ root
 
 In order for Graphite to successfully import your fonts, please follow this convention for naming your font files:
 
-> ###### name: \[\<string\>\]
-> ###### weight: \[\<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>\]
-> ###### style: \[\<normal | italic\>\]
-> ###### extension: \[\<woff | ttf | eot | svg | otf\>\]
+> ###### name: \<string\>
+> ###### weight: \<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>
+> ###### style: \<normal | italic\>
+> ###### extension: \<woff | ttf | eot | svg | otf\>
 
 #### name-weight-style.extension
 
@@ -61,6 +61,12 @@ $graphite_seperator: "-" !global;
 // ----
 $graphite_chdir: ".." !global;
 ```
+
+`$graphite_seperator` is used for the filename in the output file path. When the font gets parsed within Graphite and outputted into the `url(...)`,
+it will use this seperator variable for you guessed it, seperating the variabiles within your font's filename when rebuilding the parsed font's name.
+`$graphite_chdir` is used in the output file path to your font folder _from_ your stylesheet folder. For example, the path `url("../fonts/helvetica[...]")`
+has the `$graphite_chdir` variable (`".."`) placed at the beginning of the path. You can edit these variables according to your project needs, though these are
+the recommended settings.
 
 ### Usage
 

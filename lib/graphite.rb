@@ -5,8 +5,8 @@ extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 Compass::Frameworks.register('graphite', :path => extension_path)
 
 module Graphite
-    VERSION = "0.0.1"
-    DATE = "2014-06-24"
+    VERSION = "0.1.0"
+    DATE = "2014-07-21"
 end
 
 # Graphite : import fonts from font_dir into map
