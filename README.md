@@ -9,7 +9,7 @@ Graphite imports a folder of fonts and automagically outputs font-face directive
 
 ## Installation
 
-1. `gem install graphite-sass`/`bower install graphite-sass`
+1. `gem install graphite-sass` / `bower install graphite-sass`
 2. Add `require "graphite"` to your `config.rb`
 3. Import into your stylesheet with `@import "graphite";`
 
@@ -127,6 +127,10 @@ $helvetica-neue: "helvetica-neue";
 ## Authors
 
 [Ezekiel Gabrielse](http://ezekielg.com)
+
+## Credits
+
+[Scott Davis, for creating Sassy Hash](https://github.com/scottdavis/sassy_hash)
 
 ## License
 
