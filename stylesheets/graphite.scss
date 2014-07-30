@@ -134,7 +134,7 @@ $graphite_chdir: ".." !global;
                                         }
 
                                         // Define value for each type
-                                        $ie: if(index($extensions, "eot") and $legacy-ie, url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
+                                        $ie: if(index($extensions, "eot"), url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
                                         $woff: if(index($extensions, "woff"), url("#{$path + $filename}.woff") format("woff"), null);
                                         $otf: if(index($extensions, "otf"), url("#{$path + $filename}.otf") format("opentype"), null);
                                         $ttf: if(index($extensions, "ttf"), url("#{$path + $filename}.ttf") format("truetype"), null);
