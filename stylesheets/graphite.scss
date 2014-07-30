@@ -55,8 +55,8 @@ $graphite_chdir: ".." !global;
 // @return $fonts [map] : imports fonts from $dir and creates
 //   a $var for each font family containing [string] name
 
-@mixin graphite($dir, $legacy-ie: false) {
-    $graphite_fonts: graphite("#{$dir}", $legacy-ie) !global;
+@mixin graphite($dir, $legacy-ie: false, $debug: false) {
+    $graphite_fonts: graphite("#{$dir}", $legacy-ie, $debug) !global;
 
     // Make sure it's a valid map before attempting the loop
     @if graphite-is-map($graphite_fonts) {
@@ -120,29 +120,30 @@ $graphite_chdir: ".." !global;
 
                                     @font-face {
                                         // Empty list of valid extensions
-                                        $types: ();
+                                        $types: (local('☺'));
 
-                                        // Define font family
-                                        font-family: "#{$name}";
-
-                                        // Output weight and style
-                                        font-weight: $weight;
-                                        font-style: $style;
+                                        font: {
+                                            family: "#{$name}";
+                                            weight: $weight;
+                                            style: $style;
+                                        }
 
                                         // IE9
-                                        @if index($extensions, "eot") {
+                                        @if index($extensions, "eot") and $legacy-ie {
                                             src: url("#{$path + $filename}.eot");
                                         }
 
                                         // Define value for each type
                                         $ie: if(index($extensions, "eot") and $legacy-ie, url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
                                         $woff: if(index($extensions, "woff"), url("#{$path + $filename}.woff") format("woff"), null);
+                                        $otf: if(index($extensions, "otf"), url("#{$path + $filename}.otf") format("otf"), null);
                                         $ttf: if(index($extensions, "ttf"), url("#{$path + $filename}.ttf") format("truetype"), null);
                                         $svg: if(index($extensions, "svg"), url("#{$path + $filename + '.svg#' + $name}") format("svg"), null);
 
                                         // Append to types list if not null
                                         $types: if($ie != null, append($types, #{$ie}, "comma"), $types);
                                         $types: if($woff != null, append($types, #{$woff}, "comma"), $types);
+                                        $types: if($otf != null, append($types, #{$otf}, "comma"), $types);
                                         $types: if($ttf != null, append($types, #{$ttf}, "comma"), $types);
                                         $types: if($svg != null, append($types, #{$svg}, "comma"), $types);
 
