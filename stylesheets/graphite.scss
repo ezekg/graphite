@@ -134,14 +134,14 @@ $graphite_chdir: ".." !global;
                                         }
 
                                         // Define value for each type
-                                        $ie: if(index($extensions, "eot"), url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
+                                        $eot: if(index($extensions, "eot"), url("#{$path + $filename}.eot?#iefix") format("embedded-opentype"), null);
                                         $woff: if(index($extensions, "woff"), url("#{$path + $filename}.woff") format("woff"), null);
                                         $otf: if(index($extensions, "otf"), url("#{$path + $filename}.otf") format("opentype"), null);
                                         $ttf: if(index($extensions, "ttf"), url("#{$path + $filename}.ttf") format("truetype"), null);
                                         $svg: if(index($extensions, "svg"), url("#{$path + $filename + '.svg#' + $name}") format("svg"), null);
 
                                         // Append to types list if not null
-                                        $types: if($ie != null, append($types, #{$ie}, "comma"), $types);
+                                        $types: if($eot != null, append($types, #{$eot}, "comma"), $types);
                                         $types: if($woff != null, append($types, #{$woff}, "comma"), $types);
                                         $types: if($otf != null, append($types, #{$otf}, "comma"), $types);
                                         $types: if($ttf != null, append($types, #{$ttf}, "comma"), $types);

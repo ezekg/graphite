@@ -5,7 +5,7 @@ extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 Compass::Frameworks.register('graphite', :path => extension_path)
 
 module Graphite
-    VERSION = "0.2.2"
+    VERSION = "0.2.3"
     DATE = "2014-07-30"
 end
 
