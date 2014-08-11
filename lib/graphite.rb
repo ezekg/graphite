@@ -5,8 +5,8 @@ extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
 Compass::Frameworks.register('graphite', :path => extension_path)
 
 module Graphite
-    VERSION = "0.2.3"
-    DATE = "2014-07-30"
+    VERSION = "0.3.0"
+    DATE = "2014-08-11"
 end
 
 # Graphite : import fonts from font_dir into map
@@ -87,59 +87,50 @@ module Sass::Script::Functions
             # Keep hash of all fonts found
             fonts = {}
             # Valid font extensions
-            valid_extensions = ["eot", "otf", "woff", "ttf", "svg"]
-            # Check if directory exists
-            dir_name = File.dirname(dir)
+            valid_extensions = ["eot", "otf", "woff2", "woff", "ttf", "svg"]
 
-            if File.exists?(dir_name)
+            if File.exists?(dir)
                 # Print debug
                 puts "Fonts directory found: #{dir}" if debug
                 # Change dir to font_dir
                 Dir.chdir(dir) do
                     # Search each dir
                     Dir.glob("**/") do | d |
-                        # Check if directory exists
-                        dir_name = File.dirname(d)
-
-                        if File.exists?(dir_name)
-                            # Check if dir has fonts
-                            Dir.chdir(d) do
-                                path = d
-                                # Clean up font name
-                                family = d.delete("/")
-                                # Print debug
-                                puts "Font family found: #{family}" if debug
-                                # Get matched extensions
-                                extensions = []
-                                # Get matched weights and styles
-                                variations = {}
-                                # Check dir for matching extensions
-                                valid_extensions.each do | ext |
-                                    Dir.glob("*.#{ext}") do | filename |
-                                        puts "Font found: #{filename}" if debug
-                                        # Check if filename has weights
-                                        w = font_has_weights?(filename.to_s)
-                                        # Merge weights and styles
-                                        set_font_style(variations, w)
-                                        # Save extensions that don't already exist
-                                        extensions << ext if extensions.include?(ext) === false
-                                    end
+                        # Check if dir has fonts
+                        Dir.chdir(d) do
+                            path = d
+                            # Clean up font name
+                            family = d.delete("/")
+                            # Print debug
+                            puts "Font family found: #{family}" if debug
+                            # Get matched extensions
+                            extensions = []
+                            # Get matched weights and styles
+                            variations = {}
+                            # Check dir for matching extensions
+                            valid_extensions.each do | ext |
+                                Dir.glob("*.#{ext}") do | filename |
+                                    puts "Font found: #{filename}" if debug
+                                    # Check if filename has weights
+                                    w = font_has_weights?(filename.to_s)
+                                    # Merge weights and styles
+                                    set_font_style(variations, w)
+                                    # Save extensions that don't already exist
+                                    extensions << ext if extensions.include?(ext) === false
                                 end
-                                # Build out font hash
-                                font = {
-                                    "#{family}" => {
-                                        "path" => path,
-                                        "extensions" => extensions,
-                                        "weights" => variations
-                                    }
-                                }
-                                # Merge into fonts hash
-                                fonts = fonts.merge(font)
-                                # Set Sass variable for font family
-                                set_sass_var(family)
                             end
-                        else
-                            puts "Directory was not found: #{dir}. Aborting mission."
+                            # Build out font hash
+                            font = {
+                                "#{family}" => {
+                                    "path" => path,
+                                    "extensions" => extensions,
+                                    "weights" => variations
+                                }
+                            }
+                            # Merge into fonts hash
+                            fonts = fonts.merge(font)
+                            # Set Sass variable for font family
+                            set_sass_var(family)
                         end
                     end
                 end
