@@ -24,27 +24,20 @@ $graphite_chdir: ".." !global;
 // @return fetched literal | false
 
 @function graphite-map-fetch($map, $keys) {
-	$key: nth($keys, 1);
+	$has-key: graphite-is-map($map) and map-has-key($map, nth($keys, 1)) and map-get($map, nth($keys, 1)) or false;
 	$length: length($keys);
-	$value: map-get($map, $key);
 
-	@if $value != null {
-		@if $length > 1 {
-			$rest: ();
+	@if $has-key and $length > 1 {
+		$remainder: ();
 
-			@for $i from 2 through $length {
-				$rest: append($rest, nth($keys, $i))
-			}
-
-			@return graphite-map-fetch($value, $rest);
-
-		} @else {
-			@return $value;
+		@for $i from 2 through $length {
+			$remainder: append($remainder, nth($keys, $i))
 		}
-	} @else {
-		@warn "Invalid arguments passed to function: graphite-map-fetch(#{$map}, #{$keys}). One or more of the keys do not exist.";
-		@return false;
+
+		@return graphite-map-fetch($has-key, $remainder);
 	}
+
+	@return $has-key;
 }
 
 // Import fonts from $dir

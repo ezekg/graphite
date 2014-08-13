@@ -1,6 +1,6 @@
 {
   "name": "graphite",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "stylesheets/_graphite.scss",
   "description": "{raphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet.",
   "authors": ["Ezekiel Gabrielse <ezekg@yahoo.com>"],
