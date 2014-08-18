@@ -1,10 +1,20 @@
 // Filename seperator
 // ----
+// @var [string] : used when rebuilding parsed filenames
+// ----
 $graphite_seperator: "-" !global;
 
 // Prepend directory path
 // ----
+// @var [string] : prepends string to asset path in font-face output
+// ----
 $graphite_chdir: ".." !global;
+
+// Relative asset paths
+// ----
+// @var [bool] : removes leading slash for asset path in font-face output
+// ----
+$graphite_relative_assets: false !global;
 
 // Checks if item is map
 // ----
@@ -81,6 +91,10 @@ $graphite_chdir: ".." !global;
                     @if $k == "path" {
                         // Define path to font directory
                         $path: $graphite_chdir + $path + "/" + $v;
+
+                        @if $graphite_relative_assets {
+                            $path: str-slice($path, 2, str-length($path));
+                        }
                     }
 
                     // List of extensions found

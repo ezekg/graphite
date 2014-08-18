@@ -54,11 +54,21 @@ These global variables can be changed according to your needs.
 ```scss
 // Filename seperator
 // ----
+// @var [string] : used when rebuilding parsed filenames
+// ----
 $graphite_seperator: "-" !global;
 
 // Prepend directory path
 // ----
+// @var [string] : prepends string to asset path in font-face output
+// ----
 $graphite_chdir: ".." !global;
+
+// Relative asset paths
+// ----
+// @var [bool] : removes leading slash for asset path in font-face output
+// ----
+$graphite_relative_assets: false !global;
 ```
 
 `$graphite_seperator` is used for the filename in the output file path. When the font gets parsed within Graphite and outputted into the `url(...)`,

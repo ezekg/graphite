@@ -11,7 +11,7 @@ else
 end
 
 module Graphite
-    VERSION = "0.4.0"
+    VERSION = "0.4.1"
     DATE = "2014-08-18"
 end
 
