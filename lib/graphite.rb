@@ -1,12 +1,18 @@
-require 'compass'
+require 'sass'
 require 'sassy_hash'
 
-extension_path = File.expand_path(File.join(File.dirname(__FILE__), ".."))
-Compass::Frameworks.register('graphite', :path => extension_path)
+base_directory = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+graphite_stylesheets_path = File.join(base_directory, 'stylesheets')
+
+if (defined? Compass)
+    Compass::Frameworks.register('graphite', :path => base_directory)
+else
+    ENV["SASS_PATH"] = [ENV["SASS_PATH"], graphite_stylesheets_path].compact.join(File::PATH_SEPARATOR)
+end
 
 module Graphite
-    VERSION = "0.3.1"
-    DATE = "2014-08-13"
+    VERSION = "0.4.0"
+    DATE = "2014-08-18"
 end
 
 # Graphite : import fonts from font_dir into map

@@ -2,10 +2,9 @@
 
 Graphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet. Will write up better documentation soon.
 
-##Requirements
+## Requirements
 
 * Sass `~> 3.3.0`
-* Compass `~> 1.0.0.alpha.19`
 
 ## Installation
 

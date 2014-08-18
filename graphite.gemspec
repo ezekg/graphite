@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
     s.rubygems_version = %q{1.3.6}
 
     # Gems Dependencies
-    s.add_dependency("sass", [">=3.3.0"])
-    s.add_dependency("compass", [">= 0.12.1"])
-    s.add_dependency("sassy_hash", [">=0.0.6"])
+    s.add_dependency("sass", [">= 3.3.0"])
+    s.add_dependency("sassy_hash", [">= 0.0.6"])
+    # s.add_dependency("compass", [">= 0.12.1"])
 end
