@@ -39,7 +39,7 @@ In order for Graphite to successfully import your fonts, please follow this conv
 
 > ###### name: \<string\>
 > ###### weight: \<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>
-> ###### style: \<normal | italic\> (defaults to normal if blank)
+> ###### style: \<normal | italic | oblique\> (defaults to normal if blank)
 > ###### extension: \<woff | woff2 | ttf | eot | svg | otf\>
 
 #### name-weight-style.extension
