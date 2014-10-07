@@ -1,6 +1,6 @@
 # Graphite [![Gem Version](https://badge.fury.io/rb/graphite-sass.svg)](http://badge.fury.io/rb/graphite-sass)
 
-Graphite allows you to import fonts into your stylesheet in a syntax similar to Google Fonts. Quick and simple.
+Graphite allows you to import fonts into your stylesheet in a syntax similar to Google Fonts. Quick and simple. _Graphite is completely Ruby-based, so if you're not using a Ruby compiler (like libsass), then the plugin will not work without a Ruby wrapper._
 
 ## Requirements
 
