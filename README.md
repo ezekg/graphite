@@ -19,20 +19,21 @@ Graphite allows you to import fonts into your stylesheet in a syntax similar to 
 Each font-family should have it's own folder inside of the top-level fonts directory. The font-family directory name should match the name specified in the actual font filename.
 
 ```
-root
-├── fonts
-│   ├── helvetica-neue
+root/
+├── fonts/
+│   ├── helvetica-neue/
 │   │   ├── helvetica-neue-400-italic.woff
 │   │   ├── helvetica-neue-400-normal.woff
 │   │   ├── helvetica-neue-700-italic.woff
 │   │   ├── helvetica-neue-700-normal.woff
 │   │   ├── ...
-│   ├── font-family...
+│   ├── another-font-family/
 │   │   ├── fonts...
-├── sass
+├── sass/
 │   ├── style.scss
-├── css
+├── css/
 │   ├── style.css
+...
 ```
 
 ### File naming convention
