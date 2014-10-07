@@ -88,7 +88,7 @@ The output is similar to what Google Fonts does with their CSS. All fonts share 
   font-weight: 500;
   font-style: normal;
   src: url("../fonts/helvetica-neue/helvetica-neue-500.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-500.eot?#iefix") format("embedded-opentype"), url("fonts/helvetica-neue/helvetica-neue-500.woff") format("woff"), url("fonts/helvetica-neue/helvetica-neue-500.ttf") format("truetype"), url("fonts/helvetica-neue/helvetica-neue-500.svg#helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-500.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-500.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-500.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-500.svg#helvetica-neue") format("svg");
 }
 ```
 
