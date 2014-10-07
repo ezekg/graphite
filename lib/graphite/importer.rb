@@ -90,7 +90,7 @@ module Graphite
                             # Save ext
                             extensions << ext unless extensions.include? ext
                             # Grab path
-                            path = "#{@font_family_path}/#{@font_family_name}-#{style}"
+                            path = "#{@font_family_path}/#{@font_family_name}-#{style}" if path.empty?
                         end
                     end
 
