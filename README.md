@@ -49,6 +49,8 @@ Example,
 
 ### Usage
 
+Font paths are relative to your `config.rb` or your `$LOAD_PATH`, not necessarily your Sass file you're importing from. Graphite will automatically exit your Sass directory with `../` when outputting your fonts.
+
 ```scss
 @import "fonts/lato?styles=200,700,200-italic,700-italic";
 @import "fonts/helvetica-neue?styles=500";
