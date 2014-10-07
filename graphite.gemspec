@@ -1,4 +1,4 @@
-require_relative 'lib/graphite'
+require './lib/graphite'
 
 Gem::Specification.new do |spec|
     spec.version = Graphite::VERSION
@@ -13,5 +13,5 @@ Gem::Specification.new do |spec|
     spec.files = Dir.glob("lib/**/*.*")
     spec.files += ["README.md"]
     spec.require_paths = ["lib"]
-    spec.add_dependency("sass", [">= 3.2.0"])
+    spec.add_dependency("sass", [">= 3.3.0"])
 end

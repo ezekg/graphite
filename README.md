@@ -4,7 +4,7 @@ Graphite allows you to import fonts into your stylesheet in a syntax similar to 
 
 ## Requirements
 
-* Sass `~> 3.2.0`
+* Sass `~> 3.3.0` _(have not tested earlier versions)_
 
 ## Installation
 
@@ -63,32 +63,32 @@ The output is similar to what Google Fonts does with their CSS. All fonts share 
   font-family: "lato";
   font-weight: 200;
   font-style: normal;
-  src: url("fonts/lato/lato-200.ttf") format("truetype");
+  src: url("../fonts/lato/lato-200.ttf") format("truetype");
 }
 @font-face {
   font-family: "lato";
   font-weight: 700;
   font-style: normal;
-  src: url("fonts/lato/lato-700.ttf") format("truetype");
+  src: url("../fonts/lato/lato-700.ttf") format("truetype");
 }
 @font-face {
   font-family: "lato";
   font-weight: 200;
   font-style: italic;
-  src: url("fonts/lato/lato-200-italic.ttf") format("truetype");
+  src: url("../fonts/lato/lato-200-italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "lato";
   font-weight: 700;
   font-style: italic;
-  src: url("fonts/lato/lato-700-italic.ttf") format("truetype");
+  src: url("../fonts/lato/lato-700-italic.ttf") format("truetype");
 }
 @font-face {
   font-family: "helvetica-neue";
   font-weight: 500;
   font-style: normal;
-  src: url("fonts/helvetica-neue/helvetica-neue-500.eot");
-  src: url("fonts/helvetica-neue/helvetica-neue-500.eot?#iefix") format("embedded-opentype"), url("fonts/helvetica-neue/helvetica-neue-500.woff") format("woff"), url("fonts/helvetica-neue/helvetica-neue-500.ttf") format("truetype"), url("fonts/helvetica-neue/helvetica-neue-500.svg#helvetica-neue") format("svg");
+  src: url("../fonts/helvetica-neue/helvetica-neue-500.eot");
+  src: url("../fonts/helvetica-neue/helvetica-neue-500.eot?#iefix") format("embedded-opentype"), url("fonts/helvetica-neue/helvetica-neue-500.woff") format("woff"), url("fonts/helvetica-neue/helvetica-neue-500.ttf") format("truetype"), url("fonts/helvetica-neue/helvetica-neue-500.svg#helvetica-neue") format("svg");
 }
 ```
 

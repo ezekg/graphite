@@ -164,7 +164,7 @@ module Graphite
 
                     # Include this for IE9
                     if atts["extensions"].include? "eot"
-                        content += "\tsrc: url('#{atts["path"]}.eot');\n"
+                        content += "\tsrc: url('../#{atts["path"]}.eot');\n"
                     end
 
                     # Create array of src urls
@@ -172,22 +172,22 @@ module Graphite
 
                     # Push extensions to src arr if match
                     if atts["extensions"].include? "eot"
-                        src << "url('#{atts["path"]}.eot?#iefix') format('embedded-opentype')"
+                        src << "url('../#{atts["path"]}.eot?#iefix') format('embedded-opentype')"
                     end
                     if atts["extensions"].include? "woff2"
-                        src << "url('#{atts["path"]}.woff2') format('woff2')"
+                        src << "url('../#{atts["path"]}.woff2') format('woff2')"
                     end
                     if atts["extensions"].include? "woff"
-                        src << "url('#{atts["path"]}.woff') format('woff')"
+                        src << "url('../#{atts["path"]}.woff') format('woff')"
                     end
                     if atts["extensions"].include? "otf"
-                        src << "url('#{atts["path"]}.otf') format('opentype')"
+                        src << "url('../#{atts["path"]}.otf') format('opentype')"
                     end
                     if atts["extensions"].include? "ttf"
-                        src << "url('#{atts["path"]}.ttf') format('truetype')"
+                        src << "url('../#{atts["path"]}.ttf') format('truetype')"
                     end
                     if atts["extensions"].include? "svg"
-                        src << "url('#{atts["path"]}.svg##{font}') format('svg')"
+                        src << "url('../#{atts["path"]}.svg##{font}') format('svg')"
                     end
 
                     # Join src together

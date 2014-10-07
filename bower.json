@@ -1,7 +1,7 @@
 {
   "name": "graphite",
-  "version": "0.5.0",
-  "main": "stylesheets/_graphite.scss",
+  "version": "0.5.1",
+  "main": "lib/graphite.rb",
   "description": "Graphite allows you to import fonts into a syntax similar to Google Fonts. Quick and simple.",
   "authors": ["Ezekiel Gabrielse <ezekg@yahoo.com>"],
   "homepage": "https://github.com/ezekg/graphite/",
