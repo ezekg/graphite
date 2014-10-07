@@ -31,6 +31,8 @@ root
 │   │   ├── fonts...
 ├── sass
 │   ├── style.scss
+├── css
+│   ├── style.css
 ```
 
 ### File naming convention
