@@ -1,3 +1,5 @@
 # Gem file
 *.gem
 .DS_Store
+.sass-cache
+tests/fonts

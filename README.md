@@ -1,16 +1,16 @@
 # Graphite [![Gem Version](https://badge.fury.io/rb/graphite-sass.svg)](http://badge.fury.io/rb/graphite-sass)
 
-Graphite imports a folder of fonts and automagically outputs font-face directives for each font into your stylesheet. Will write up better documentation soon.
+Graphite allows you to import fonts into your stylesheet in a syntax similar to Google Fonts. Quick and simple.
 
 ## Requirements
 
-* Sass `~> 3.3.0`
+* Sass `~> 3.2.0`
 
 ## Installation
 
 1. `gem install graphite-sass` / `bower install graphite-sass`
 2. Add `require "graphite"` to your `config.rb`
-3. Import into your stylesheet with `@import "graphite";`
+3. Import into your stylesheet with `@import "graphite"`
 
 ## Documentation
 
@@ -39,107 +39,62 @@ In order for Graphite to successfully import your fonts, please follow this conv
 
 > ###### name: \<string\>
 > ###### weight: \<100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900\>
-> ###### style: \<normal | italic\>
+> ###### style: \<normal | italic\> (defaults to normal if blank)
 > ###### extension: \<woff | woff2 | ttf | eot | svg | otf\>
 
 #### name-weight-style.extension
 
 Example,
-`helvetica-neue-400-italic.woff`, `helvetica-neue-400-normal.ttf`, `helvetica-neue-100-normal.svg`
-
-### Configuration
-
-These global variables can be changed according to your needs.
-
-```scss
-// Filename seperator
-// ----
-// @var [string] : used when rebuilding parsed filenames
-// ----
-$graphite_seperator: "-" !global;
-
-// Prepend directory path
-// ----
-// @var [string] : prepends string to asset path in font-face output
-// ----
-$graphite_chdir: ".." !global;
-
-// Relative asset paths
-// ----
-// @var [bool] : removes leading slash for asset path in font-face output
-// ----
-$graphite_relative_assets: false !global;
-```
-
-`$graphite_seperator` is used for the filename in the output file path. When the font gets parsed within Graphite and outputted into the `url(...)`,
-it will use this seperator variable for you guessed it, seperating the variabiles within your font's filename when rebuilding the parsed font's name.
-`$graphite_chdir` is used in the output file path to your font folder _from_ your stylesheet folder. For example, the path `url("../fonts/helvetica[...]")`
-has the `$graphite_chdir` variable (`".."`) placed at the beginning of the path. You can edit these variables according to your project needs, though these are
-the recommended settings.
+`helvetica-neue-400-italic.woff`, `helvetica-neue-400-normal.ttf`, `helvetica-neue-100.svg`
 
 ### Usage
 
 ```scss
-// Import fonts from $dir
-// ----
-// @param $dir [string] : directory to import fonts
-// @param $legacy-ie [bool] : support legacy ie
-// ----
-// @return $fonts [map] : imports fonts from $dir and creates
-//   a $var for each font family containing [string] name
-
-@include graphite("/fonts", true);
+@import "fonts/lato?styles=200,700,200-italic,700-italic";
+@import "fonts/helvetica-neue?styles=500";
 ```
-
-Graphite will also create a local Sass variable for each font-family, so with the example above we would have a `$helvetica-neue: "helvetica-neue"` variable to use within the stylesheet, such as for a font stack. Graphite does not handle creating font stacks; that is left up to you. Graphite will import the correct filetypes for each font-family. This check is run on a family-to-family basis, and not a font-to-font basis; be sure to include the same filetypes for each font in your font-family folder to avoid any 404 request errors.
 
 ### Output
 
 The output is similar to what Google Fonts does with their CSS. All fonts share the same font-family, and each fonts style and weight is assigned appropriately.
 
 ```scss
-$helvetica-neue: "helvetica-neue";
-
 @font-face {
-  font-family: "helvetica-neue";
-  font-weight: 200;
-  font-style: italic;
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-italic.svg#helvetica-neue") format("svg");
-}
-
-@font-face {
-  font-family: "helvetica-neue";
+  font-family: "lato";
   font-weight: 200;
   font-style: normal;
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-200-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-200-normal.svg#helvetica-neue") format("svg");
+  src: url("fonts/lato/lato-200.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: "helvetica-neue";
-  font-weight: 700;
-  font-style: italic;
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-italic.svg#helvetica-neue") format("svg");
-}
-
-@font-face {
-  font-family: "helvetica-neue";
+  font-family: "lato";
   font-weight: 700;
   font-style: normal;
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot");
-  src: url("../fonts/helvetica-neue/helvetica-neue-700-normal.eot?#iefix") format("embedded-opentype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.woff") format("woff"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.ttf") format("truetype"), url("../fonts/helvetica-neue/helvetica-neue-700-normal.svg#helvetica-neue") format("svg");
+  src: url("fonts/lato/lato-700.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lato";
+  font-weight: 200;
+  font-style: italic;
+  src: url("fonts/lato/lato-200-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lato";
+  font-weight: 700;
+  font-style: italic;
+  src: url("fonts/lato/lato-700-italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "helvetica-neue";
+  font-weight: 500;
+  font-style: normal;
+  src: url("fonts/helvetica-neue/helvetica-neue-500.eot");
+  src: url("fonts/helvetica-neue/helvetica-neue-500.eot?#iefix") format("embedded-opentype"), url("fonts/helvetica-neue/helvetica-neue-500.woff") format("woff"), url("fonts/helvetica-neue/helvetica-neue-500.ttf") format("truetype"), url("fonts/helvetica-neue/helvetica-neue-500.svg#helvetica-neue") format("svg");
 }
 ```
 
 ## Authors
 
 [Ezekiel Gabrielse](http://ezekielg.com)
-
-## Credits
-
-[Scott Davis, for creating Sassy Hash](https://github.com/scottdavis/sassy_hash)
 
 ## License
 

@@ -1,5 +1,5 @@
 {
     "name": "Graphite",
-    "description": "Graphite imports a folder of fonts and automagically outputs their font-face directives.",
-    "tags": ["fonts", "typography", "sass", "ruby", "import"]
+    "description": "Graphite allows you to import fonts into a syntax similar to Google Fonts. Quick and simple.",
+    "tags": ["fonts", "font", "typography", "sass", "ruby", "import", "importer"]
 }
