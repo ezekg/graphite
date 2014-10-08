@@ -1,6 +1,6 @@
 {
   "name": "graphite",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "lib/graphite.rb",
   "description": "Graphite allows you to import fonts into a syntax similar to Google Fonts. Quick and simple.",
   "authors": ["Ezekiel Gabrielse <ezekg@yahoo.com>"],

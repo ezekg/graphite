@@ -85,12 +85,18 @@ module Graphite
 
                     # Loop over each extension
                     FONT_EXTENSIONS.each do |ext|
+                        # Build out the file path
+                        file = "#{@font_family_path}/#{@font_family_name}-#{style}.#{ext}"
                         # Check if the file exists with passed param
-                        if File.exists?("#{@font_family_path}/#{@font_family_name}-#{style}.#{ext}")
+                        if File.exists? file
                             # Save ext
                             extensions << ext unless extensions.include? ext
-                            # Grab path
-                            path = "#{@font_family_path}/#{@font_family_name}-#{style}" if path.empty?
+                            # Absolute path of font file
+                            font_dir = Pathname.new(file).dirname.expand_path
+                            # Absolute path of sass file
+                            sass_dir = Pathname.new(base).dirname.expand_path
+                            # Get relative path from Sass dir to font dir
+                            path = "#{font_dir.relative_path_from(sass_dir)}/#{@font_family_name}-#{style}" if path.empty?
                         end
                     end
 
@@ -164,7 +170,7 @@ module Graphite
 
                     # Include this for IE9
                     if atts["extensions"].include? "eot"
-                        content += "\tsrc: url('../#{atts["path"]}.eot');\n"
+                        content += "\tsrc: url('#{atts["path"]}.eot');\n"
                     end
 
                     # Create array of src urls
@@ -172,22 +178,22 @@ module Graphite
 
                     # Push extensions to src arr if match
                     if atts["extensions"].include? "eot"
-                        src << "url('../#{atts["path"]}.eot?#iefix') format('embedded-opentype')"
+                        src << "url('#{atts["path"]}.eot?#iefix') format('embedded-opentype')"
                     end
                     if atts["extensions"].include? "woff2"
-                        src << "url('../#{atts["path"]}.woff2') format('woff2')"
+                        src << "url('#{atts["path"]}.woff2') format('woff2')"
                     end
                     if atts["extensions"].include? "woff"
-                        src << "url('../#{atts["path"]}.woff') format('woff')"
+                        src << "url('#{atts["path"]}.woff') format('woff')"
                     end
                     if atts["extensions"].include? "otf"
-                        src << "url('../#{atts["path"]}.otf') format('opentype')"
+                        src << "url('#{atts["path"]}.otf') format('opentype')"
                     end
                     if atts["extensions"].include? "ttf"
-                        src << "url('../#{atts["path"]}.ttf') format('truetype')"
+                        src << "url('#{atts["path"]}.ttf') format('truetype')"
                     end
                     if atts["extensions"].include? "svg"
-                        src << "url('../#{atts["path"]}.svg##{font}') format('svg')"
+                        src << "url('#{atts["path"]}.svg##{font}') format('svg')"
                     end
 
                     # Join src together
