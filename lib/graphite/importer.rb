@@ -93,10 +93,10 @@ module Graphite
                             extensions << ext unless extensions.include? ext
                             # Absolute path of font file
                             font_dir = Pathname.new(file).dirname.expand_path
-                            # Absolute path of sass file
-                            sass_dir = Pathname.new(base).dirname.expand_path
+                            # Absolute path of css file
+                            css_dir = Pathname.new(base).dirname.expand_path
                             # Get relative path from Sass dir to font dir
-                            path = "#{font_dir.relative_path_from(sass_dir)}/#{@font_family_name}-#{style}" if path.empty?
+                            path = "#{font_dir.relative_path_from(css_dir)}/#{@font_family_name}-#{style}" if path.empty?
                         end
                     end
 
@@ -118,7 +118,7 @@ module Graphite
                     end
                 end
             else
-                raise ArgumentError, "Font family to import could not be found, or it's unreadable: #{@font_family_path}."
+                raise ArgumentError, "Font family to import could not be found, or it's unreadable: #{File.expand_path(@font_family_path)}."
             end
 
             unless @fonts.nil?
