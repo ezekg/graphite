@@ -32,9 +32,9 @@ module Graphite
         ]
 
         def find(name, options)
-            if options[:filename]
+            if options[:css_filename]
                 if name.include? "?styles="
-                    find_fonts(name, options[:filename], options)
+                    find_fonts(name, options[:css_filename], options)
                 else
                     super(name, options)
                 end
