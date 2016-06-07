@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
     spec.licenses = ['MIT']
     spec.authors = ["Ezekiel Gabrielse"]
     spec.email = ["ezekg@yahoo.com"]
-    spec.homepage = "https://github.com/ezekg/Graphite/"
+    spec.homepage = "https://github.com/ezekg/graphite/"
     spec.summary = %q{Graphite allows you to import fonts into a syntax similar to Google Fonts. Quick and simple.}
     spec.description = %q{Graphite allows you to import fonts into your stylesheet in a syntax similar to Google Fonts. Quick and simple.}
     spec.files = Dir.glob("lib/**/*.*")
